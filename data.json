@@ -4,7 +4,36 @@
             "id": 1,
             "name": "Product 1",
             "image": "/imagesource.img ",
-            "price": 100
+            "price": 100,
+            "description":"A macbook pro"
+        },
+        {
+            "id": 2,
+            "name": "Product 2",
+            "image": "/imagesource.img ",
+            "price": 100,
+            "description":"A macbook pro"
+        },
+        {
+            "id": 3,
+            "name": "Product 3",
+            "image": "/imagesource.img ",
+            "price": 100,
+            "description":"A macbook pro"
+        }
+        ,  {
+            "id": 4,
+            "name": "Product 4",
+            "image": "/imagesource.img ",
+            "price": 100,
+            "description":"A macbook pro"
+        }
+        ,  {
+            "id": 5,
+            "name": "Product 5",
+            "image": "/imagesource.img ",
+            "price": 100,
+            "description":"A macbook pro"
         }
     ]
 }
