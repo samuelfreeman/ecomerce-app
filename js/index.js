@@ -38,23 +38,53 @@ const data = {
   ],
 };
 
-
+let cart = [];
 const container = document.getElementById("product-container");
+const cartItems = document.getElementById("cart-items");
+const totalPriceEl = document.getElementById("total-price");
+function listProducts() {
+  data.products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
 
-
-data.products.forEach((product) => {
-  
-  const productDiv = document.createElement("div");
-  productDiv.classList.add("product");
-
-  
-  productDiv.innerHTML = `
+    productDiv.innerHTML = `
     <h2>${product.name}</h2>
     <img src="${product.image}" alt="${product.name}"  />
     <p>Price: $${product.price}</p>
     <p>${product.description}</p>
-  `;
+    <button onclick="addToCart(${product.id})">Add to Cart</button>
 
-  
-  container.appendChild(productDiv);
-});
+    `;
+
+    container.appendChild(productDiv);
+  });
+}
+
+function addToCart(productId) {
+  const product = data.products.find((p) => p.id === productId);
+  cart.push(product);
+  updateCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  cartItems.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    const cartItem = document.createElement("li");
+    cartItem.innerHTML = `
+      ${item.name} - $${item.price}
+      <button onclick="removeFromCart(${index})">Remove</button>
+    `;
+    cartItems.appendChild(cartItem);
+  });
+
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  totalPriceEl.textContent = totalPrice;
+}
+
+listProducts();
