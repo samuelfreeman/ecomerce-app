@@ -12,7 +12,7 @@ This is an eCommerce application built as part of an assignment. The app allows 
 - **Checkout Functionality**: This allows users to checkout after adding products to thier cart by providing their details.
 
 ### Technologies Used:
-- HTML, CSS, and JavaScript for frontend development.
+- HTML, CSS, and JavaScript for frontend development. 
 - Basic DOM manipulation for adding interactivity, like adding items to the cart and updating the UI.
 
 ### How to Use:

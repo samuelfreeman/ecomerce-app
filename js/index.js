@@ -154,22 +154,32 @@ function addToCart(productId) {
   updateCart(); // Update the cart view
 }
 
-// Function to update the cart view
+
+
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
 function updateCart() {
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = ""; // Clear the cart list
 
-  // Add each cart item to the cart view
-  cart.forEach((item) => {
+
+  cart.forEach((item, index) => {
     const cartItem = document.createElement("li");
-    cartItem.textContent = `${item.name} (x${item.quantity}) - $${item.total}`;
+    cartItem.innerHTML = `
+      ${item.name} (x${item.quantity}) - $${item.total}
+      <button onclick="removeFromCart(${index})">Remove</button>
+    `;
     cartItems.appendChild(cartItem);
   });
 
-  // Update total price of the cart
-  const totalPrice = cart.reduce((sum, item) => sum + item.total, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.total, 0);
   document.getElementById("total-price").textContent = totalPrice;
 }
+
 
 // Function to display products on the page
 function listProducts(products) {
