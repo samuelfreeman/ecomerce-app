@@ -51,7 +51,29 @@
       <div class="modal-content" id="product-details"></div>
     </div>
 
-   
+    <!-- checkout Modal -->
+    <div id="checkout-modal" class="modal hidden">
+      <div class="modal-content">
+        <!-- heading for the checkout modal -->
+        <h2>Checkout</h2>
+        <!-- form for user details during checkout -->
+        <form id="checkout-form">
+          <!-- input field for the user's name -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
+          <!-- input field for the user's email -->
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+          <label for="contact">Contact:</label>
+          <input type="tel" id="contact" required />
+          <!-- submit button to complete the order -->
+          <button type="submit">Submit Order</button>
+          <!-- button to close the checkout modal -->
+          <button onclick="closeCheckoutModal()">Close</button>
+        </form>
+      </div>
+    </div>
+
     <!-- linking external JavaScript file for functionality -->
     <script src="./js/index.js"></script>
   </body>

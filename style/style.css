@@ -75,6 +75,12 @@ img {
     text-align: center;
 }
 
+/* checkout form, stacked vertically */
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 /* hidden elements are not displayed */
 .hidden {
