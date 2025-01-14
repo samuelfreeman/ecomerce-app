@@ -7,7 +7,7 @@ This is an eCommerce application built as part of an assignment. The app allows 
 - **Product Listing**: Displays a list of products with details such as name, image, price, and description.
 - **Category Filter**: Allows users to filter products by category.
 - **Add to Cart**: Users can add products to the cart, and the quantity is tracked for each product.
-- **Cart Management**: Users can view their cart, with the total price and quantity of each item updated dynamically.
+- **Cart Management**: Users can view their cart, with the total price and quantity of each item updated dynamically. 
 - **Responsive Design**: The application is fully responsive, ensuring a seamless experience on mobile and desktop devices.
 - **Checkout Functionality**: This allows users to checkout after adding products to thier cart by providing their details.
 
