@@ -3,17 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>E-commerce App</title>
+    <!-- link for the  CSS file for styling -->
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <h1>Welcome to the Ecomerce app!</h1>
-    <div id="product-container"></div>
-    <div id="cart-container" class="cart">
-      <h2>Your Cart</h2>
-      <ul id="cart-items"></ul>
-      <p>Total Price: $<span id="total-price">0</span></p>
+    <!-- header section -->
+    <h1>Welcome to the E-commerce App!</h1>
+
+    <!-- serchbar and category filter -->
+    <div class="search-bar-container">
+      <!-- input field for searching products by name or category -->
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="Search products by name or category"
+        aria-label="Search products"
+      />
+      <!-- dropdown menu for filtering products by category -->
+      <select id="category-filter">
+        <option value="All">All Categories</option>
+      </select>
+      <!-- button to open the cart modal -->
+      <button id="cart-icon" class="cart-button"> View Cart</button>
     </div>
+    
+    <!-- container to display the list of products -->
+    <div id="product-container"></div>
+
+    <!-- cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+      <div class="modal-content">
+        <!-- heading for the cart modal -->
+        <h2>Your Cart</h2>
+        <!-- list of items in the cart -->
+        <ul id="cart-items"></ul>
+        <!-- display the total price of items in the cart -->
+        <p>Total Price: $<span id="total-price">0</span></p>
+        <!-- buttons for checkout and closing the cart modal -->
+        <button id="checkout-button">Checkout</button>
+        <button onclick="closeCartModal()">Close</button>
+      </div>
+    </div>
+    
+    <!-- product Details Modal -->
+    <div id="details-modal" class="modal hidden">
+      <div class="modal-content" id="product-details"></div>
+    </div>
+
+   
+    <!-- linking external JavaScript file for functionality -->
+    <script src="./js/index.js"></script>
   </body>
-  <script src="./js/index.js"></script>
 </html>

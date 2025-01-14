@@ -1,62 +1,135 @@
-* {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-
+/* basic reset to ensure consistency across browsers */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-#product-container {
+/* centered heading for better presentation */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* search bar layout with flex to align elements */
+.search-bar-container {
     display: flex;
-    width: 100;
     justify-content: center;
     align-items: center;
-    height: 40vh;
-
-}
-img{
-    width: 200px;
-
-}
-h1 {
-    padding: 10px;
+    gap: 10px;
 }
 
-body {
+/* product grid, adjusts to fit the available space */
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* styling for each product card */
+.product {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* cart icon positioned fixed at the bottom-right */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+}
+
+/* image styling with fixed width and height */
+img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* modal styling for overlay effect */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-}
-
-.product {
-    width: 50%;
-    height: 50%;
-    
-    margin: 10px;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 
-@media screen and (max-width:600px) {
-    body {
-        max-width: 1024px;
-        margin: 0;
+/* hidden elements are not displayed */
+.hidden {
+    display: none;
+}
+
+/* mobile adjustments (less than 600px wide) */
+@media screen and (max-width: 600px) {
+    /* stack the search bar items vertically */
+    .search-bar-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 10px;
     }
 
-
+    /* product grid: stack products in a single column on mobile */
     #product-container {
-        display: flex;
-        overflow: auto;
-        flex-direction: column;
-        width: auto;
-        justify-content: center;
-        align-items: center;
-        height: 50%;
-        margin-top: 10%;
-        margin: 0;
+        grid-template-columns: 1fr; 
         padding: 10px;
+    }
+
+    /* product card: reduced padding for mobile */
+    .product {
+        padding: 10px;
+    }
+
+    /* cart icon: smaller size on mobile */
+    .cart-icon {
+        font-size: 1.5rem; 
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* modal content: reduce padding and ensure it fits within screen */
+    .modal-content {
+        padding: 15px;
+        width: 90%; /* modal width adjusted */
+    }
+
+    /* responsive images: ensure they scale well on smaller screens */
+    img {
+        width: 100%; /* images are fully responsive */
+        height: auto;
+    }
+}
+
+/* adjustments for larger screens (above 600px) */
+@media screen and (min-width: 601px) {
+    /* add some more gap between search bar items */
+    .search-bar-container {
+        gap: 15px;
+    }
+
+    /* increase the product card size slightly on medium screens */
+    #product-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
