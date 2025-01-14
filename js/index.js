@@ -87,16 +87,23 @@ function showDetails(productId) {
   const modal = document.getElementById("details-modal");
   const detailsContainer = document.getElementById("product-details");
 
+  // Check if the product is already in the cart
+  const existingProduct = cart.find((item) => item.id === productId);
+  const quantity = existingProduct ? existingProduct.quantity : 0;
+  const total = quantity * product.price;
+
   // Set content of the product details modal
   detailsContainer.innerHTML = `
     <h2>${product.name}</h2>
     <img src="${product.image}" alt="${product.name}" />
     <p>${product.description}</p>
     <p>Price: $${product.price}</p>
+    <p class="product-quantity">Quantity in Cart: ${quantity}</p>
+    <p class="product-total">Total: $${total}</p>
     <button onclick="addToCart(${product.id})">Add to Cart</button>
     <button onclick="closeDetailsModal()">Close</button>
   `;
-  
+
   modal.classList.remove("hidden"); // Show the modal
 }
 
@@ -137,7 +144,7 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   updateCart(); // Update the cart view
 });
 
-// Function to add a product to the cart
+// function to add a product to the cart
 function addToCart(productId) {
   const product = data.products.find((p) => p.id === productId);
   const existingProduct = cart.find((item) => item.id === productId);
@@ -152,6 +159,16 @@ function addToCart(productId) {
   }
 
   updateCart(); // Update the cart view
+
+  // uppdating the details modal dynamically if it's open
+  const detailsContainer = document.getElementById("product-details");
+  if (detailsContainer && !document.getElementById("details-modal").classList.contains("hidden")) {
+    const quantity = existingProduct ? existingProduct.quantity : 1;
+    const total = quantity * product.price;
+
+    detailsContainer.querySelector(".product-quantity").textContent = `Quantity in Cart: ${quantity}`;
+    detailsContainer.querySelector(".product-total").textContent = `Total: $${total}`;
+  }
 }
 
 
