@@ -115,7 +115,27 @@ function closeCartModal() {
   document.getElementById("cart-modal").classList.add("hidden");
 }
 
+// Checkout Modal functionality
+document.getElementById("checkout-button").addEventListener("click", showCheckoutModal);
 
+// Function to show the checkout modal
+function showCheckoutModal() {
+  document.getElementById("checkout-modal").classList.remove("hidden");
+}
+
+// Close checkout modal
+function closeCheckoutModal() {
+  document.getElementById("checkout-modal").classList.add("hidden");
+}
+
+// Event listener for checkout form submission
+document.getElementById("checkout-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Order submitted successfully!"); // Alert user on successful submission
+  closeCheckoutModal();
+  cart = []; // Clear the cart
+  updateCart(); // Update the cart view
+});
 
 // Function to add a product to the cart
 function addToCart(productId) {
