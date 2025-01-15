@@ -36,8 +36,7 @@ const data = {
   ],
 };
 
-// Cart array to store cart items
-let cart = [];
+
 
 // Function to populate category filter options
 function populateCategories() {
@@ -81,6 +80,59 @@ document.getElementById("search-bar").addEventListener("input", (event) => {
   listProducts(filteredProducts); // Display filtered products
 });
 
+
+// Function to display products on the page
+function listProducts(products) {
+  const container = document.getElementById("product-container");
+  container.innerHTML = ""; // Clear the container before displaying new products
+
+  // Display each product
+  products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.className = "product";
+    productDiv.innerHTML = `
+      <h2>${product.name}</h2>
+      <img src="${product.image}" alt="${product.name}" />
+      <p>$${product.price}</p>
+       <button onclick="addToCart(${product.id})">Add to Cart</button>
+      <button onclick="showDetails(${product.id})">View Details</button>
+    `;
+    container.appendChild(productDiv);
+  });
+}
+
+
+// Cart array to store cart items
+let cart = [];
+
+// function to add a product to the cart
+function addToCart(productId) {
+  const product = data.products.find((p) => p.id === productId);
+  const existingProduct = cart.find((item) => item.id === productId);
+
+  // If product already exists in cart, increase quantity
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+    existingProduct.total = existingProduct.quantity * product.price;
+  } else {
+    // If new product, add to cart with quantity of 1
+    cart.push({ ...product, quantity: 1, total: product.price });
+  }
+
+  updateCart(); // Update the cart view
+
+  // uppdating the details modal dynamically if it's open
+  const detailsContainer = document.getElementById("product-details");
+  if (detailsContainer && !document.getElementById("details-modal").classList.contains("hidden")) {
+    const quantity = existingProduct ? existingProduct.quantity : 1;
+    const total = quantity * product.price;
+
+    detailsContainer.querySelector(".product-quantity").textContent = `Quantity in Cart: ${quantity}`;
+    detailsContainer.querySelector(".product-total").textContent = `Total: $${total}`;
+  }
+}
+
+
 // Function to show product details in a modal
 function showDetails(productId) {
   const product = data.products.find((p) => p.id === productId);
@@ -106,6 +158,32 @@ function showDetails(productId) {
 
   modal.classList.remove("hidden"); // Show the modal
 }
+
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = ""; // Clear the cart list
+
+
+  cart.forEach((item, index) => {
+    const cartItem = document.createElement("li");
+    cartItem.innerHTML = `
+      ${item.name} (x${item.quantity}) - $${item.total}
+      <button onclick="removeFromCart(${index})">Remove</button>
+    `;
+    cartItems.appendChild(cartItem);
+  });
+
+    const totalPrice = cart.reduce((sum, item) => sum + item.total, 0);
+  document.getElementById("total-price").textContent = totalPrice;
+}
+
+
 
 // Function to close the product details modal
 function closeDetailsModal() {
@@ -144,79 +222,6 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   updateCart(); // Update the cart view
 });
 
-// function to add a product to the cart
-function addToCart(productId) {
-  const product = data.products.find((p) => p.id === productId);
-  const existingProduct = cart.find((item) => item.id === productId);
-
-  // If product already exists in cart, increase quantity
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-    existingProduct.total = existingProduct.quantity * product.price;
-  } else {
-    // If new product, add to cart with quantity of 1
-    cart.push({ ...product, quantity: 1, total: product.price });
-  }
-
-  updateCart(); // Update the cart view
-
-  // uppdating the details modal dynamically if it's open
-  const detailsContainer = document.getElementById("product-details");
-  if (detailsContainer && !document.getElementById("details-modal").classList.contains("hidden")) {
-    const quantity = existingProduct ? existingProduct.quantity : 1;
-    const total = quantity * product.price;
-
-    detailsContainer.querySelector(".product-quantity").textContent = `Quantity in Cart: ${quantity}`;
-    detailsContainer.querySelector(".product-total").textContent = `Total: $${total}`;
-  }
-}
-
-
-
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  updateCart();
-}
-
-function updateCart() {
-  const cartItems = document.getElementById("cart-items");
-  cartItems.innerHTML = ""; // Clear the cart list
-
-
-  cart.forEach((item, index) => {
-    const cartItem = document.createElement("li");
-    cartItem.innerHTML = `
-      ${item.name} (x${item.quantity}) - $${item.total}
-      <button onclick="removeFromCart(${index})">Remove</button>
-    `;
-    cartItems.appendChild(cartItem);
-  });
-
-    const totalPrice = cart.reduce((sum, item) => sum + item.total, 0);
-  document.getElementById("total-price").textContent = totalPrice;
-}
-
-
-// Function to display products on the page
-function listProducts(products) {
-  const container = document.getElementById("product-container");
-  container.innerHTML = ""; // Clear the container before displaying new products
-
-  // Display each product
-  products.forEach((product) => {
-    const productDiv = document.createElement("div");
-    productDiv.className = "product";
-    productDiv.innerHTML = `
-      <h2>${product.name}</h2>
-      <img src="${product.image}" alt="${product.name}" />
-      <p>$${product.price}</p>
-       <button onclick="addToCart(${product.id})">Add to Cart</button>
-      <button onclick="showDetails(${product.id})">View Details</button>
-    `;
-    container.appendChild(productDiv);
-  });
-}
 
 // Initialize the page with categories and products
 populateCategories();
