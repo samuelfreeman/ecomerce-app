@@ -93,7 +93,7 @@ function listProducts(products) {
     productDiv.innerHTML = `
       <h2>${product.name}</h2>
       <img src="${product.image}" alt="${product.name}" />
-      <p>GHC ${product.price}</p>
+      <p>GHS ${product.price}</p>
        <button onclick="addToCart(${product.id})">Add to Cart</button>
       <button onclick="showDetails(${product.id})">View Details</button>
     `;
@@ -128,7 +128,7 @@ function addToCart(productId) {
     const total = quantity * product.price;
 
     detailsContainer.querySelector(".product-quantity").textContent = `Quantity in Cart: ${quantity}`;
-    detailsContainer.querySelector(".product-total").textContent = `Total: GHC ${total}`;
+    detailsContainer.querySelector(".product-total").textContent = `Total: GHS ${total}`;
   }
 }
 
@@ -149,9 +149,9 @@ function showDetails(productId) {
     <h2>${product.name}</h2>
     <img src="${product.image}" alt="${product.name}" />
     <p>${product.description}</p>
-    <p>Price: GHC ${product.price}</p>
+    <p>Price: GHS ${product.price}</p>
     <p class="product-quantity">Quantity in Cart: ${quantity}</p>
-    <p class="product-total">Total: GHC ${total}</p>
+    <p class="product-total">Total: GHS ${total}</p>
     <button onclick="addToCart(${product.id})">Add to Cart</button>
     <button onclick="closeDetailsModal()">Close</button>
   `;
