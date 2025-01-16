@@ -1,14 +1,14 @@
 // Product Data
 const data = {
   products: [
-    {
-      id: 1,
-      name: "MacBook",
-      image: "../public/image1.jpg",
-      price: 100,
-      category: "Electronics",
-      description: "A MacBook Pro",
-    },
+    // {
+    //   id: 1,
+    //   name: "MacBook",
+    //   image: "../public/image1.jpg",
+    //   price: 100,
+    //   category: "Electronics",
+    //   description: "A MacBook Pro",
+    // },
     {
       id: 2,
       name: "HP Elite Book",
