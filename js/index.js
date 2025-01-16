@@ -130,6 +130,7 @@ function addToCart(productId) {
     detailsContainer.querySelector(".product-quantity").textContent = `Quantity in Cart: ${quantity}`;
     detailsContainer.querySelector(".product-total").textContent = `Total: GHS ${total}`;
   }
+  alert(`${product.name} has been added to the cart!`)
 }
 
 
