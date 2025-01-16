@@ -71,6 +71,7 @@ img {
 .modal-content {
     background: white;
     padding: 20px;
+    width: 40%;
     border-radius: 10px;
     text-align: center;
 }
