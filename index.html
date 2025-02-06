@@ -3,49 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/7aa1736b22.js" crossorigin="anonymous"></script>
     <title>E-commerce App</title>
     <!-- link for the  CSS file for styling -->
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
     <!-- header section -->
-    <h1>Welcome to the E-commerce App!</h1>
+    <!-- navigation bar -->
 
-    <!-- serchbar and category filter -->
-    <div class="search-bar-container">
-      <!-- input field for searching products by name or category -->
-      <input
-        type="text"
-        id="search-bar"
-        placeholder="Search products by name or category"
-        aria-label="Search products"
-      />
-      <!-- dropdown menu for filtering products by category -->
-      <select id="category-filter">
-        <option value="All">Categories</option>
-      </select>
-      <!-- button to open the cart modal -->
-      <button id="cart-icon" class="cart-button"> View Cart</button>
-    </div>
+      
+    <div class="header">
+      <nav class="navigation-group">
+        <div class="head-toogle">
+
+          <div class="logo">Shop-Care </div>
+          <button class="menu-toggle">&#9776;</button> 
+        </div>
     
-    <!-- container to display the list of products -->
-    <div id="product-container"></div>
+        <ul class="nav-links-group">
+          <li><a href="/index.html" class="active">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          
+          <li><a href="./cart.html">Cart</a></li>
+        </ul>
+      </nav>
+      <!-- serchbar and category filter -->
+    <!-- Hamburger Menu Button -->
+      <div class="search-bar-container">
+        <!-- input field for searching products by name or category -->
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search products by name or category"
+          aria-label="Search products"
+        />
+        <!-- dropdown menu for filtering products by category -->
+        <select id="category-filter">
+          <option value="All">Categories</option>
+        </select>
+        <!-- button to open the cart modal -->
+        <button  class="cart-button"><a href="/cart.html">
 
-    <!-- cart Modal -->
-    <div id="cart-modal" class="modal hidden">
-      <div class="modal-content">
-        <!-- heading for the cart modal -->
-        <h2>Your Cart</h2>
-        <!-- list of items in the cart -->
-        <ul id="cart-items"></ul>
-        <!-- display the total price of items in the cart -->
-        <p>Total Price: GHS <span id="total-price">0</span></p>
-        <!-- buttons for checkout and closing the cart modal -->
-        <button id="checkout-button">Checkout</button>
-        <button onclick="closeCartModal()">Close</button>
+          <i class="fa-solid fa-cart-shopping">(<span id="count">0</span>)
+        </a></i>
+        </button>
+      </div>
+     
+    </div>
+
+    <!-- Hero section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Discover a world of products and services at your fingertips.</h1>
+      </div>
+      <div>
+        <img id="hero-image" src="./public/Online Store.svg" alt="" />
       </div>
     </div>
-    
+
+    <!-- container to display the list of products
+      -->
+     <!-- mid section -->
+         <!-- Mid Section -->
+    <div class="mid-section">
+      <h2>Why Shop With Us?</h2>
+      <p>We provide high-quality products, fast delivery, and excellent customer service.</p>
+      <div class="mid-section-features">
+        <div class="feature">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Fast Delivery</h3>
+          <p>Get your orders delivered to you quickly and safely.</p>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-shield-alt"></i>
+          <h3>Secure Payments</h3>
+          <p>All transactions are secured and encrypted for your safety.</p>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-headset"></i>
+          <h3>24/7 Support</h3>
+          <p>Our team is available around the clock to assist you.</p>
+        </div>
+      </div>
+    </div>
+    <!-- product page  -->
+     <div id = "product-page">
+      <h1>Products</h1>
+
+       <div id="product-container"></div>
+       
+       <!-- cart Modal -->
+       <div id="cart-modal" class="modal hidden">
+         <div class="cart-content">
+           <!-- heading for the cart modal -->
+           
+           <h2>Your Cart</h2>
+           <!-- list of items in the cart -->
+           <ul id="cart-items"></ul>
+           <!-- display the total price of items in the cart -->
+           <p>Total Price: GHS <span id="total-price">0</span></p>
+           <!-- buttons for checkout and closing the cart modal -->
+           <button id="checkout-button">Checkout</button>
+           <button onclick="closeCartModal()">Close</button>
+          </div>
+        </div>
+      </div>
+
     <!-- product Details Modal -->
     <div id="details-modal" class="modal hidden">
       <div class="modal-content" id="product-details"></div>
@@ -69,11 +133,39 @@
           <!-- submit button to complete the order -->
           <button type="submit">Submit Order</button>
           <!-- button to close the checkout modal -->
-          <button onclick="closeCheckoutModal()">Close</button>
+          
         </form>
       </div>
     </div>
 
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>About Us</h3>
+              <p>We provide the best services to our customers with dedication and professionalism.</p>
+          </div>
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">About</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                  <a href="#">&#x1F426;</a>
+                  <a href="#">&#x1F426;</a>
+                  <a href="#">&#x1F426;</a>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          &copy; 2025 YourCompany | All rights reserved
+      </div>
+  </footer>
     <!-- linking external JavaScript file for functionality -->
     <script src="./js/index.js"></script>
   </body>
