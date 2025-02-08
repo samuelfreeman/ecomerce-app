@@ -25,7 +25,7 @@
         </ul>
       </nav>
       <!-- serchbar and category filter -->
-        
+
       <div class="search-bar-container">
         <!-- input field for searching products by name or category -->
         <!-- <input
@@ -39,10 +39,12 @@
           <option value="All">Categories</option>
         </select> -->
         <!-- button to open the cart modal -->
-        <button  class="cart-button"><a href="/cart.html">
-
-          <i class="fa-solid fa-cart-shopping">(<span id="count">0</span>)
-        </a></i>
+        <button class="cart-button">
+          <a href="/cart.html">
+            <i class="fa-solid fa-cart-shopping"
+              >(<span id="count">0</span>)
+            </i>
+          </a>
         </button>
       </div>
     </div>
@@ -71,13 +73,18 @@
         <!-- form for user details during checkout -->
         <form id="checkout-form">
           <!-- input field for the user's name -->
-          <label aria-label="name" for="name">Name:</label>
-          <input aria-label="name" type="text" id="name" required />
+          <label for="name">Name:</label>
+          <input aria-label="Enter your name" type="text" id="name" required />
           <!-- input field for the user's email -->
-          <label aria-label="email" for="email">Email:</label>
-          <input aria-label="email" type="email" id="email" required />
-          <label aria-label="contact" ="contact">Contact:</label>
-          <input type="tel" id="contact" required />
+          <label for="email">Email:</label>
+          <input
+            aria-label="Enter your email"
+            type="email"
+            id="email"
+            required
+          />
+          <label for="contact">Contact:</label>
+          <input aria-label="contact" type="tel" id="contact" required />
           <!-- submit button to complete the order -->
           <button type="submit">Submit Order</button>
           <!-- button to close the checkout modal -->
