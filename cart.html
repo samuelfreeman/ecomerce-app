@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/cart.css" />
-    <script src="https://kit.fontawesome.com/7aa1736b22.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/7aa1736b22.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="header">
       <nav class="navigation-group">
         <div class="head-toogle">
           <div class="logo">Shop-Care</div>
-          <button class="menu-toggle">&#9776;</button> 
+          <button class="menu-toggle">&#9776;</button>
         </div>
         <ul class="nav-links-group">
           <li><a href="/index.html" class="">Home</a></li>
           <li><a href="/about.html">About</a></li>
-         
+
           <li><a href="./cart.html" class="active">Cart</a></li>
         </ul>
       </nav>
       <!-- serchbar and category filter -->
+        
       <div class="search-bar-container">
         <!-- input field for searching products by name or category -->
-        <input
+        <!-- <input
           type="text"
           id="search-bar"
           placeholder="Search products by name or category"
           aria-label="Search products"
-        />
+        /> -->
         <!-- dropdown menu for filtering products by category -->
-        <select id="category-filter">
+        <!-- <select id="category-filter">
           <option value="All">Categories</option>
-        </select>
+        </select> -->
         <!-- button to open the cart modal -->
         <button  class="cart-button"><a href="/cart.html">
 
@@ -43,23 +47,20 @@
       </div>
     </div>
     <!-- product -->
-    
 
-    
     <div id="cart" class="cart">
       <div class="cart-content">
         <!-- heading for the cart modal -->
         <h2>Your Cart</h2>
         <!-- list of items in the cart -->
         <ul id="cart-items"></ul>
-        
+
         <!-- display the total price of items in the cart -->
         <div class="cart-footer">
-           <p>Total Price: GHS <span id="total-price">0</span></p>
+          <p>Total Price: GHS <span id="total-price">0</span></p>
 
-           <button id="checkout-button">Checkout</button>
-           
-         </div>
+          <button id="checkout-button">Checkout</button>
+        </div>
       </div>
     </div>
 
@@ -70,17 +71,16 @@
         <!-- form for user details during checkout -->
         <form id="checkout-form">
           <!-- input field for the user's name -->
-          <label for="name">Name:</label>
-          <input type="text" id="name" required />
+          <label aria-label="name" for="name">Name:</label>
+          <input aria-label="name" type="text" id="name" required />
           <!-- input field for the user's email -->
-          <label for="email">Email:</label>
-          <input type="email" id="email" required />
-          <label for="contact">Contact:</label>
+          <label aria-label="email" for="email">Email:</label>
+          <input aria-label="email" type="email" id="email" required />
+          <label aria-label="contact" ="contact">Contact:</label>
           <input type="tel" id="contact" required />
           <!-- submit button to complete the order -->
           <button type="submit">Submit Order</button>
           <!-- button to close the checkout modal -->
-          
         </form>
       </div>
     </div>
@@ -109,7 +109,7 @@
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
