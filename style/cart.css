@@ -279,7 +279,7 @@ button {
 }
 
 .cart-item-price {
-    color: #27ae60;
+    
     font-weight: bold;
 }
 
@@ -300,7 +300,7 @@ button {
 .quantity-controls button {
     padding: 5px 10px;
     border: none;
-    background: #ddd;
+    background: #4d50ff;
     cursor: pointer;
     font-weight: bold;
 }
@@ -313,7 +313,7 @@ button {
 
 /* Remove Button */
 .remove-btn {
-    background: #ff4d4d;
+    background: #4d50ff;
     color: white;
     border: none;
     padding: 8px;
@@ -323,14 +323,14 @@ button {
 }
 
 .remove-btn:hover {
-    background: #cc0000;
+    background: #000ecc;
 }
 
 /* Total Price */
 #total-price {
     font-size: 20px;
     font-weight: bold;
-    color: #e67e22;
+    
 }
 
 /* Make Header More Attractive */
@@ -458,7 +458,7 @@ img {
     background: none;
     border: none;
     cursor: pointer;
-    color: red;
+    color: rgb(0, 102, 255);
 }
 
 /* Responsive Design */

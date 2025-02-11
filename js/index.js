@@ -254,9 +254,15 @@ function showDetails(productId) {
   detailsContainer.innerHTML = `
     <h2>${product.name}</h2>
     <img src="${product.image}" alt="${product.name}" />
-    <p>${product.description}</p>
+    <p>Product :${product.description}</p>
+    <div class="product-details">
+    <div>
     <p>Price: GHS ${product.price}</p>
+    </div>
+    <div>
     <p class="product-quantity">Quantity in Cart: ${quantity}</p>
+    </div>
+    </div>
     <p class="product-total">Total: GHS ${total}</p>
     <button onclick="addToCart(${product.id})">Add to Cart</button>
     <button onclick="closeDetailsModal()">Close</button>

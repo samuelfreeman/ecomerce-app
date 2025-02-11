@@ -376,9 +376,17 @@ img {
     background: none;
     border: none;
     cursor: pointer;
-    color: red;
+    color: rgb(0, 102, 255);
 }
 
+  
+.product-details {
+    display: flex;
+   width: 100%;   
+   gap: 20px;
+   padding: 10px;
+   justify-content: center;
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero {
@@ -454,7 +462,7 @@ img {
         
 
     }
-  
+
 
     .menu-toggle {
         display: block;
